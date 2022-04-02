@@ -1,0 +1,18 @@
+.map-container {
+  height: 100vh;
+  width: 100vw;
+}
+
+
+#marker {
+  background-image: url('https://shmector.com/_ph/3/828272475.png');
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.mapboxgl-popup-content{
+  width: max-content;
+}
