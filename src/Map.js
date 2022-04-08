@@ -1,6 +1,10 @@
 import React, { useRef, useEffect, useState } from "react";
 import mapboxgl from "mapbox-gl";
 import "./Map.css";
+import ReactModal from "react-modal";
+import Stage from "./markers/Stage";
+import { createRoot } from "react-dom/client";
+import Food from "./markers/Food";
 
 mapboxgl.accessToken =
   "pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4M29iazA2Z2gycXA4N2pmbDZmangifQ.-g_vE53SD2WrJ6tFX7QHmA";
@@ -11,6 +15,8 @@ const Map = () => {
   const [lng, setLng] = useState(5);
   const [lat, setLat] = useState(34);
   const [zoom, setZoom] = useState(1.5);
+  const [showModal, setShowModal] = useState(false);
+  const [modalContent, setModalContent] = useState();
 
   // Initialize map when component mounts
   useEffect(() => {
@@ -25,18 +31,35 @@ const Map = () => {
       zoom: zoom,
       maxBounds: box,
     });
-    const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(
-      '<div class="popup"><h1>Main Stage Schedule</h1><p>Theses are all of the acts that will be happing during the day in a table format with aprox start times :)</p></br><p> Or should this be a link to a neater version of the schedule?</p></div>'
+
+    createMarker(
+      map,
+      53.948434952146755,
+      -1.031986604550525,
+      <Stage
+        closeModal={() => setShowModal(false)}
+        onClickFunc={(modalContent) => {
+          console.log("Open Modal");
+          setShowModal(true);
+          setModalContent(modalContent);
+        }}
+      />,
+      "marker"
     );
-
-    // create DOM element for the marker
-    const el = document.createElement("div");
-    el.id = "marker";
-
-    const marker = new mapboxgl.Marker(el)
-      .setLngLat([-1.031986604550525, 53.948434952146755])
-      .setPopup(popup) // add popup
-      .addTo(map);
+    createMarker(
+      map,
+      53.948575229640625,
+      -1.0308867066471805,
+      <Food
+        closeModal={() => setShowModal(false)}
+        onClickFunc={(modalContent) => {
+          console.log("Open Modal");
+          setShowModal(true);
+          setModalContent(modalContent);
+        }}
+      />,
+      "markers"
+    );
 
     map.on("move", () => {
       setLng(map.getCenter().lng.toFixed(4));
@@ -59,8 +82,30 @@ const Map = () => {
   return (
     <div>
       <div className="map-container" ref={mapContainerRef} />
+      <div id="ReactModal">
+        <ReactModal
+          isOpen={showModal}
+          contentLabel="Minimal Modal Example"
+          appElement={document.getElementById("ReactModal")}
+        >
+          {modalContent}
+        </ReactModal>
+      </div>
     </div>
   );
 };
 
 export default Map;
+
+function createMarker(map, lat, lng, popupElement, id) {
+  const popupNode = document.createElement("div");
+  const popupNodeRoot = createRoot(popupNode);
+  popupNodeRoot.render(popupElement);
+  const popup = new mapboxgl.Popup({ offset: 25 }).setDOMContent(popupNode);
+  const markerElement = document.createElement("div");
+  markerElement.id = id;
+  new mapboxgl.Marker(markerElement)
+    .setLngLat([lng, lat])
+    .setPopup(popup) // add popup
+    .addTo(map);
+}
