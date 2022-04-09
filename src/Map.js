@@ -1,13 +1,41 @@
 import React, { useRef, useEffect, useState } from "react";
 import mapboxgl from "mapbox-gl";
-import "./Map.css";
 import ReactModal from "react-modal";
 import Stage from "./markers/Stage";
 import { createRoot } from "react-dom/client";
 import Food from "./markers/Food";
+import { IoFastFoodOutline } from "react-icons/io5";
+import { BsSpeaker } from "react-icons/bs";
+import styled from "styled-components";
 
 mapboxgl.accessToken =
   "pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4M29iazA2Z2gycXA4N2pmbDZmangifQ.-g_vE53SD2WrJ6tFX7QHmA";
+
+const MapContainer = styled.div`
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+`;
+
+const Title = styled.div`
+  position: absolute;
+  z-index: 0;
+  display: flex;
+  padding-top: 16px;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const Logo = styled.img`
+  height: 50px;
+`;
 
 const Map = () => {
   const mapContainerRef = useRef(null);
@@ -44,7 +72,7 @@ const Map = () => {
           setModalContent(modalContent);
         }}
       />,
-      "marker"
+      <BsSpeaker size={50} />
     );
     createMarker(
       map,
@@ -58,7 +86,7 @@ const Map = () => {
           setModalContent(modalContent);
         }}
       />,
-      "markers"
+      <IoFastFoodOutline size={50} />
     );
 
     map.on("move", () => {
@@ -80,8 +108,16 @@ const Map = () => {
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <div>
-      <div className="map-container" ref={mapContainerRef} />
+    <Container>
+      <MapContainer ref={mapContainerRef}>
+        <Title>
+          <a href="https://www.goodricke.co.uk/">
+            <Logo src="https://mlgzaysrmplm.i.optimole.com/nUCW1y8-93OuRwaG/w:1755/h:512/q:auto/https://www.goodricke.co.uk/wp-content/uploads/2021/02/cropped-splash.png" />
+          </a>
+          <h1>Goodfest Map</h1>
+        </Title>
+      </MapContainer>
+
       <div id="ReactModal">
         <ReactModal
           isOpen={showModal}
@@ -91,19 +127,21 @@ const Map = () => {
           {modalContent}
         </ReactModal>
       </div>
-    </div>
+    </Container>
   );
 };
 
 export default Map;
 
-function createMarker(map, lat, lng, popupElement, id) {
+function createMarker(map, lat, lng, popupElement, markerIcon) {
   const popupNode = document.createElement("div");
   const popupNodeRoot = createRoot(popupNode);
   popupNodeRoot.render(popupElement);
   const popup = new mapboxgl.Popup({ offset: 25 }).setDOMContent(popupNode);
   const markerElement = document.createElement("div");
-  markerElement.id = id;
+  const markerElementRoot = createRoot(markerElement);
+  markerElementRoot.render(markerIcon);
+  markerElement.id = "marker";
   new mapboxgl.Marker(markerElement)
     .setLngLat([lng, lat])
     .setPopup(popup) // add popup
