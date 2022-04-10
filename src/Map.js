@@ -121,8 +121,10 @@ const Map = () => {
       <div id="ReactModal">
         <ReactModal
           isOpen={showModal}
-          contentLabel="Minimal Modal Example"
+          contentLabel="Map overlay displaying further information of selected marker"
           appElement={document.getElementById("ReactModal")}
+          shouldCloseOnEsc={true}
+          shouldCloseOnOverlayClick={true}
         >
           {modalContent}
         </ReactModal>
