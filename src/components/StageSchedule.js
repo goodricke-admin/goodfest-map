@@ -8,7 +8,22 @@ export const StageSchedule = {
   Schedule: [
     {
       Act: "Supercool band1",
-      Members: ["A", "B"],
+      Members: ["Barry Little", "Susan Tall"],
+      Time: "10:00AM-11:00AM",
+    },
+    {
+      Act: "Supercool band1",
+      Members: ["Barry Little", "Susan Tall"],
+      Time: "10:00AM-11:00AM",
+    },
+    {
+      Act: "Supercool band1",
+      Members: ["Barry Little", "Susan Tall"],
+      Time: "10:00AM-11:00AM",
+    },
+    {
+      Act: "Supercool band1",
+      Members: ["Barry Little", "Susan Tall"],
       Time: "10:00AM-11:00AM",
     },
     {

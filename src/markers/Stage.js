@@ -7,6 +7,7 @@ import { StageSchedule } from "../components/StageSchedule";
 const ModalContainer = styled.div`
   display: flex;
   flex-direction: column;
+  overflow-x: auto;
   align-items: center;
 `;
 
@@ -74,34 +75,36 @@ const TableContainer = styled.table`
   background: white;
   border-radius: 3px;
   border-collapse: collapse;
-  height: 320px;
   margin: auto;
   max-width: 600px;
   padding: 5px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-  animation: float 5s infinite;
-  border-collapse: collapse;
-  border-spacing: 0;
   border: 1px solid #ddd;
   width: 95%;
+  overflow-x: scroll;
+  min-width: 400px;
+`;
+
+const ModalMainContent = styled.div`
+  min-width: 95%;
   overflow-x: auto;
 `;
 
-const ModalMainContent = styled.div``;
-
 function Stage({ onClickFunc, closeModal }) {
   const modalContent = (
-    <ModalContainer>
-      <ModalHeader>
-        <ModalCloseButton
-          onClick={() => {
-            closeModal();
-          }}
-        >
-          <AiOutlineClose size={32} />
-        </ModalCloseButton>
-        <ModalTitle>Main Stage Schedule</ModalTitle>
-      </ModalHeader>
+    <>
+      <ModalContainer>
+        <ModalHeader>
+          <ModalCloseButton
+            onClick={() => {
+              closeModal();
+            }}
+          >
+            <AiOutlineClose size={32} />
+          </ModalCloseButton>
+          <ModalTitle>Main Stage Schedule</ModalTitle>
+        </ModalHeader>
+      </ModalContainer>
       <ModalMainContent>
         <TableContainer>
           <tbody>
@@ -122,7 +125,7 @@ function Stage({ onClickFunc, closeModal }) {
           </tbody>
         </TableContainer>
       </ModalMainContent>
-    </ModalContainer>
+    </>
   );
   return (
     <div className="popup">
@@ -141,7 +144,7 @@ function Stage({ onClickFunc, closeModal }) {
           onClickFunc(modalContent);
         }}
       >
-        Trigger Modal
+        View Schedule
       </button>
     </div>
   );
