@@ -45,7 +45,6 @@ const Map = () => {
   const [zoom, setZoom] = useState(1.5);
   const [showModal, setShowModal] = useState(false);
   const [modalContent, setModalContent] = useState();
-  console.log(REACT_APP_MAPACCESSTOKEN);
   // Initialize map when component mounts
   useEffect(() => {
     const box = [
@@ -57,7 +56,7 @@ const Map = () => {
       style: "mapbox://styles/mapbox/streets-v11",
       center: [lng, lat],
       zoom: zoom,
-      maxBounds: box,
+      //maxBounds: box,
     });
 
     createMarker(
@@ -103,6 +102,27 @@ const Map = () => {
       padding: { top: 10, bottom: 25, left: 15, right: 5 },
     });
 
+    map.on("load", function () {
+      console.log("Map loaded");
+      map.addSource("radar", {
+        type: "image",
+        url: "https://www.goodricke.co.uk/wp-content/uploads/2022/04/Nucleus-Map-2.png",
+        coordinates: [
+          [-1.0313051485826463, 53.94867458853355],
+          [-1.0309324482159923, 53.94868076436762],
+          [-1.0309243113024706, 53.94834823038076],
+          [-1.0313168632305008, 53.94834836762021],
+        ],
+      });
+      map.addLayer({
+        id: "radar-layer",
+        type: "raster",
+        source: "radar",
+        paint: {
+          "raster-fade-duration": 0,
+        },
+      });
+    });
     // Clean up on unmount
     return () => map.remove();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
