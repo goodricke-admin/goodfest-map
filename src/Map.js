@@ -8,8 +8,7 @@ import { IoFastFoodOutline } from "react-icons/io5";
 import { BsSpeaker } from "react-icons/bs";
 import styled from "styled-components";
 
-mapboxgl.accessToken =
-  "pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4M29iazA2Z2gycXA4N2pmbDZmangifQ.-g_vE53SD2WrJ6tFX7QHmA";
+mapboxgl.accessToken = process.env.MAPACCESSTOKEN;
 
 const MapContainer = styled.div`
   height: 100vh;
