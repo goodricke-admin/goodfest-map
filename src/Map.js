@@ -7,8 +7,9 @@ import Food from "./markers/Food";
 import { IoFastFoodOutline } from "react-icons/io5";
 import { BsSpeaker } from "react-icons/bs";
 import styled from "styled-components";
+const { REACT_APP_MAPACCESSTOKEN } = process.env;
 
-mapboxgl.accessToken = process.env.MAPACCESSTOKEN;
+mapboxgl.accessToken = REACT_APP_MAPACCESSTOKEN;
 
 const MapContainer = styled.div`
   height: 100vh;
@@ -44,7 +45,7 @@ const Map = () => {
   const [zoom, setZoom] = useState(1.5);
   const [showModal, setShowModal] = useState(false);
   const [modalContent, setModalContent] = useState();
-
+  console.log(REACT_APP_MAPACCESSTOKEN);
   // Initialize map when component mounts
   useEffect(() => {
     const box = [
