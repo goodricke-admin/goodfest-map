@@ -2,9 +2,13 @@ import React, { useRef, useEffect, useState } from "react";
 import mapboxgl from "mapbox-gl";
 import ReactModal from "react-modal";
 import Stage from "./markers/Stage";
+import Henna from "./markers/Henna";
+import Merch from "./markers/Merch";
+import Hornets from "./markers/Hornets";
 import { createRoot } from "react-dom/client";
 import Food from "./markers/Food";
-import { IoFastFoodOutline } from "react-icons/io5";
+import GlassHouse from "./markers/GlassHouse";
+import { IoPizzaOutline, IoBeerOutline, IoShirtOutline } from "react-icons/io5";
 import { BsSpeaker } from "react-icons/bs";
 import styled from "styled-components";
 const { REACT_APP_MAPACCESSTOKEN } = process.env;
@@ -56,7 +60,7 @@ const Map = () => {
       style: "mapbox://styles/mapbox/streets-v11",
       center: [lng, lat],
       zoom: zoom,
-      //maxBounds: box,
+      maxBounds: box,
     });
 
     createMarker(
@@ -66,7 +70,6 @@ const Map = () => {
       <Stage
         closeModal={() => setShowModal(false)}
         onClickFunc={(modalContent) => {
-          console.log("Open Modal");
           setShowModal(true);
           setModalContent(modalContent);
         }}
@@ -85,7 +88,86 @@ const Map = () => {
           setModalContent(modalContent);
         }}
       />,
-      <IoFastFoodOutline size={50} />
+      <IoPizzaOutline size={50} />
+    );
+
+    createMarker(
+      map,
+      53.94880861200045,
+      -1.0311021278578778,
+      <GlassHouse
+        closeModal={() => setShowModal(false)}
+        onClickFunc={(modalContent) => {
+          console.log("Open Modal");
+          setShowModal(true);
+          setModalContent(modalContent);
+        }}
+      />,
+      <IoBeerOutline size={50} />
+    );
+
+    createMarker(
+      map,
+      53.94866341962435,
+      -1.0312476961189816,
+      <GlassHouse
+        closeModal={() => setShowModal(false)}
+        onClickFunc={(modalContent) => {
+          console.log("Open Modal");
+          setShowModal(true);
+          setModalContent(modalContent);
+        }}
+      />,
+      <IoBeerOutline size={50} />
+    );
+
+    createMarker(
+      map,
+      53.94859357253344,
+      -1.0312588227954222,
+      <Merch
+        closeModal={() => setShowModal(false)}
+        onClickFunc={(modalContent) => {
+          console.log("Open Modal");
+          setShowModal(true);
+          setModalContent(modalContent);
+        }}
+      />,
+      <IoShirtOutline size={50} />
+    );
+
+    createMarker(
+      map,
+      53.94862413065013,
+      -1.0311939171821223,
+      <Henna
+        closeModal={() => setShowModal(false)}
+        onClickFunc={(modalContent) => {
+          console.log("Open Modal");
+          setShowModal(true);
+          setModalContent(modalContent);
+        }}
+      />,
+      <img src={require("./images/henna.png")} height="50px" width="50px" />
+    );
+
+    createMarker(
+      map,
+      53.948708165355384,
+      -1.0314999007907488,
+      <Hornets
+        closeModal={() => setShowModal(false)}
+        onClickFunc={(modalContent) => {
+          console.log("Open Modal");
+          setShowModal(true);
+          setModalContent(modalContent);
+        }}
+      />,
+      <img
+        src={require("./images/york-hornets.png")}
+        height="50px"
+        width="50px"
+      />
     );
 
     map.on("move", () => {
@@ -125,16 +207,15 @@ const Map = () => {
     });
     // Clean up on unmount
     return () => map.remove();
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <Container>
       <MapContainer ref={mapContainerRef}>
         <Title>
           <a href="https://www.goodricke.co.uk/">
-            <Logo src="https://mlgzaysrmplm.i.optimole.com/nUCW1y8-93OuRwaG/w:1755/h:512/q:auto/https://www.goodricke.co.uk/wp-content/uploads/2021/02/cropped-splash.png" />
+            <Logo src="https://www.goodricke.co.uk/wp-content/uploads/2022/05/GoodfestLogo2022.png" />
           </a>
-          <h1>Goodfest Map</h1>
         </Title>
       </MapContainer>
 

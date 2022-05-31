@@ -110,14 +110,15 @@ function Stage({ onClickFunc, closeModal }) {
           <tbody>
             <TableRow>
               <TableHeader>Act</TableHeader>
-              <TableHeader>Members</TableHeader>
               <TableHeader>Time</TableHeader>
+              <TableHeader>Socials</TableHeader>
             </TableRow>
             {StageSchedule.Schedule.map((item, index) => {
               return (
                 <StageRow
+                  key={item.Time}
                   bandName={item.Act}
-                  members={item.Members}
+                  socials={item.Socials}
                   time={item.Time}
                 />
               );
@@ -131,20 +132,16 @@ function Stage({ onClickFunc, closeModal }) {
     <div className="popup">
       <h1>Main Stage Schedule</h1>
       <p>
-        Theses are all of the acts that will be happing during the day in a
-        table format with aprox start times :)
+        View the full schedule bellow. There is a range of acts on the stage
+        from 3PM until 10PM be sure to check them out.
       </p>
-      <p>
-        {" "}
-        Or should this be a link to a neater version of the schedule? Nah should
-        have a Modal
-      </p>
+
       <button
         onClick={() => {
           onClickFunc(modalContent);
         }}
       >
-        View Schedule
+        View Full Schedule
       </button>
     </div>
   );

@@ -15,7 +15,7 @@ const ModalCloseButton = styled.button`
   right: 20px;
 `;
 
-function Food({ onClickFunc, closeModal }) {
+function Hornets({ onClickFunc, closeModal }) {
   const modalContent = (
     <>
       <ModalCloseButton
@@ -30,10 +30,10 @@ function Food({ onClickFunc, closeModal }) {
   );
   return (
     <div className="popup">
-      <h1>Dominos Pizza</h1>
+      <h1>York Hornets</h1>
       <p>
-        Dominos are bringing a food truck so be sure to get something to eat
-        from their extensive menu.
+        Come and watch The University of York's very own Cheerleading team The
+        York Hornets! Between 15:00 and 15:45 The Hornets will be performing.
       </p>
       {/*<button
         onClick={() => {
@@ -46,4 +46,4 @@ function Food({ onClickFunc, closeModal }) {
   );
 }
 
-export default Food;
+export default Hornets;

@@ -40,18 +40,22 @@ const TableRow = styled.tr`
   }
 `;
 
-function StageRow({ bandName, members, time }) {
+function StageRow({ bandName, socials, time }) {
   return (
     <>
       <TableRow>
-        <TableData rowSpan={members.length}>{bandName}</TableData>
-        <TableData>{members[0]}</TableData>
-        <TableData rowSpan={members.length}>{time}</TableData>
+        <TableData rowSpan={socials.length}>{bandName}</TableData>
+        <TableData rowSpan={socials.length}>{time}</TableData>
+        <TableData>
+          <a href={socials[0]} target="_blank" rel="noreferrer">
+            {socials[0]}
+          </a>
+        </TableData>
       </TableRow>
-      {members.map((name, index) => {
+      {socials.map((name, index) => {
         if (index !== 0) {
           return (
-            <TableRow id={index}>
+            <TableRow id={index} key={index}>
               <TableData>{name}</TableData>
             </TableRow>
           );

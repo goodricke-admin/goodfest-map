@@ -15,7 +15,11 @@ const ModalCloseButton = styled.button`
   right: 20px;
 `;
 
-function Food({ onClickFunc, closeModal }) {
+const Attribute = styled.a`
+  font-size: 0.4rem;
+`;
+
+function Henna({ onClickFunc, closeModal }) {
   const modalContent = (
     <>
       <ModalCloseButton
@@ -30,10 +34,11 @@ function Food({ onClickFunc, closeModal }) {
   );
   return (
     <div className="popup">
-      <h1>Dominos Pizza</h1>
+      <h1>Henna</h1>
       <p>
-        Dominos are bringing a food truck so be sure to get something to eat
-        from their extensive menu.
+        Join the Henna Society in the Clarbour room to get some beautiful and
+        intricate designs on hands, ankles.... any part of the body that you
+        fancy your art on!
       </p>
       {/*<button
         onClick={() => {
@@ -42,8 +47,24 @@ function Food({ onClickFunc, closeModal }) {
       >
         Trigger Modal
       </button>*/}
+      <a
+        href="https://www.instagram.com/uoyhennasociety/"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Find out more about the Henna Society here
+      </a>
+      <br />
+      <Attribute
+        href="https://www.flaticon.com/free-icons/henna"
+        title="henna icons"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Henna icons created by Eucalyp - Flaticon
+      </Attribute>
     </div>
   );
 }
 
-export default Food;
+export default Henna;
