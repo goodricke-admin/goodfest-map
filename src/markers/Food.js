@@ -32,8 +32,11 @@ function Food({ onClickFunc, closeModal }) {
     <div className="popup">
       <h1>Dominos Pizza</h1>
       <p>
-        Dominos are bringing a food truck so be sure to get something to eat
-        from their extensive menu.
+        Dominos are bringing a food truck so be sure to get something to eat.
+        <br />
+        <b>Individual Pizza: £4</b>
+        <br />
+        Margarita or Peperoni
       </p>
       {/*<button
         onClick={() => {

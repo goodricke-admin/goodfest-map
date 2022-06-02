@@ -57,14 +57,19 @@ function Food({ onClickFunc, closeModal }) {
       <p>
         GlassHouse are providing drinks for the event and have 2 bars. They are
         bringing a variety of beers and cocktails find out more bellow.
+        <br />
+        <b>
+          Due to licensing restrictions you are unable to bring your own
+          alcohol.
+        </b>
       </p>
-      <button
+      {/*<button
         onClick={() => {
           onClickFunc(modalContent);
         }}
       >
         View Menu
-      </button>
+      </button>*/}
     </div>
   );
 }
