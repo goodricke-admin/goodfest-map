@@ -52,7 +52,10 @@ const Map = () => {
   const [modalContent, setModalContent] = useState();
   // Initialize map when component mounts
   useEffect(() => {
-
+    const box = [
+      [-1.03497, 53.94624],
+      [-1.02813, 53.95003],
+    ];
     const map = new mapboxgl.Map({
       container: mapContainerRef.current,
       style: "mapbox://styles/mapbox/streets-v11",
