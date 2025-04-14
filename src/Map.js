@@ -54,7 +54,7 @@ const Map = () => {
       container: mapContainerRef.current,
       style: "mapbox://styles/mapbox/streets-v11",
       center: [-1.031909,53.94719],
-      zoom: 2,
+      zoom: 9,
     });
 
     createMarker(
