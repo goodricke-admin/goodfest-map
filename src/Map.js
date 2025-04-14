@@ -43,7 +43,10 @@ const Logo = styled.img`
 
 const Map = () => {
   const mapContainerRef = useRef(null);
-
+  
+  const [lng, setLng] = useState(5);
+  const [lat, setLat] = useState(34);
+  const [zoom, setZoom] = useState(1.5);
 
   const [showModal, setShowModal] = useState(false);
   const [modalContent, setModalContent] = useState();
@@ -54,7 +57,8 @@ const Map = () => {
       container: mapContainerRef.current,
       style: "mapbox://styles/mapbox/streets-v11",
       center: [-1.031909,53.94719],
-      zoom: 9,
+      zoom: zoom,
+      maxBounds: box,
     });
 
     createMarker(
@@ -165,11 +169,11 @@ const Map = () => {
       />
     );*/
 
-    /*map.on("move", () => {
+    map.on("move", () => {
       setLng(map.getCenter().lng.toFixed(4));
       setLat(map.getCenter().lat.toFixed(4));
       setZoom(map.getZoom().toFixed(2));
-    });*/
+    });
 
     const bbox = [
       [-1.033170, 53.974652],
@@ -181,7 +185,7 @@ const Map = () => {
 
     map.on("load", function () {
       console.log("Map loaded");
-      /*map.addSource("radar", {
+      map.addSource("radar", {
         type: "image",
         url: "https://www.goodricke.co.uk/wp-content/uploads/2022/04/Nucleus-Map-2.png",
         coordinates: [
@@ -198,7 +202,7 @@ const Map = () => {
         paint: {
           "raster-fade-duration": 0,
         },
-      });*/
+      });
     });
     // Clean up on unmount
     return () => map.remove();
