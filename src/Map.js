@@ -59,8 +59,8 @@ const Map = () => {
       container: mapContainerRef.current,
       style: "mapbox://styles/mapbox/streets-v11",
       center: [-1.031909,53.94719],
-      zoom: zoom,
-      maxBounds: box,
+      zoom: 9,
+      //maxBounds: box,
     });
 
     createMarker(
@@ -124,7 +124,7 @@ const Map = () => {
     createMarker(
       map,
       53.947382,
-      -1.0.1851,
+      -1.031851,
       <Merch
         closeModal={() => setShowModal(false)}
         onClickFunc={(modalContent) => {
