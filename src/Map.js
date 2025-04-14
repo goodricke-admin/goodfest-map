@@ -65,8 +65,8 @@ const Map = () => {
 
     createMarker(
       map,
-      53.948434952146755,
-      -1.031986604550525,
+      53.947123,
+      -1.032193,
       <Stage
         closeModal={() => setShowModal(false)}
         onClickFunc={(modalContent) => {
@@ -78,8 +78,8 @@ const Map = () => {
     );
     createMarker(
       map,
-      53.948575229640625,
-      -1.0308867066471805,
+      53.946964,
+      -1.032602,
       <Food
         closeModal={() => setShowModal(false)}
         onClickFunc={(modalContent) => {
