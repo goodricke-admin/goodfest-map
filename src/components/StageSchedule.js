@@ -27,7 +27,7 @@ export const StageSchedule = {
       Time: "18:00PM-19:00PM",
     },
     {
-      Act: "Substate,
+      Act: "Substate",
       Socials: [""],
       Time: "19:00PM-20:00PM",
     },
