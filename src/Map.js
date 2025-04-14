@@ -14,7 +14,7 @@ import styled from "styled-components";
 const { REACT_APP_MAPACCESSTOKEN } = process.env;
 
 mapboxgl.accessToken = REACT_APP_MAPACCESSTOKEN;
-
+console.log(REACT_APP_MAPACCESSTOKEN)
 const MapContainer = styled.div`
   height: 100vh;
   width: 100vw;
@@ -44,23 +44,17 @@ const Logo = styled.img`
 const Map = () => {
   const mapContainerRef = useRef(null);
 
-  const [lng, setLng] = useState(5);
-  const [lat, setLat] = useState(34);
-  const [zoom, setZoom] = useState(1.5);
+
   const [showModal, setShowModal] = useState(false);
   const [modalContent, setModalContent] = useState();
   // Initialize map when component mounts
   useEffect(() => {
-    const box = [
-      [-1.03497, 53.94624],
-      [-1.02813, 53.95003],
-    ];
+
     const map = new mapboxgl.Map({
       container: mapContainerRef.current,
       style: "mapbox://styles/mapbox/streets-v11",
       center: [-1.031909,53.94719],
-      zoom: 9,
-      //maxBounds: box,
+      zoom: 2,
     });
 
     createMarker(
@@ -148,7 +142,7 @@ const Map = () => {
           setModalContent(modalContent);
         }}
       />,
-      <img src={require("./images/henna.png")} height="50px" width="50px" />
+      <img src={require("./images/henna.png")} alt="Henna Logo" height="50px" width="50px" />
     );
 
     createMarker(
@@ -165,20 +159,21 @@ const Map = () => {
       />,
       <img
         src={require("./images/york-hornets.png")}
+        alt ="York Hornets Logo"
         height="50px"
         width="50px"
       />
     );*/
 
-    map.on("move", () => {
+    /*map.on("move", () => {
       setLng(map.getCenter().lng.toFixed(4));
       setLat(map.getCenter().lat.toFixed(4));
       setZoom(map.getZoom().toFixed(2));
-    });
+    });*/
 
     const bbox = [
-      [-1.033, 53.949],
-      [-1.03, 53.948],
+      [-1.033170, 53.974652],
+      [-1.030659, 53.946746],
     ];
     map.fitBounds(bbox, {
       padding: { top: 10, bottom: 25, left: 15, right: 5 },
@@ -186,7 +181,7 @@ const Map = () => {
 
     map.on("load", function () {
       console.log("Map loaded");
-      map.addSource("radar", {
+      /*map.addSource("radar", {
         type: "image",
         url: "https://www.goodricke.co.uk/wp-content/uploads/2022/04/Nucleus-Map-2.png",
         coordinates: [
@@ -203,11 +198,11 @@ const Map = () => {
         paint: {
           "raster-fade-duration": 0,
         },
-      });
+      });*/
     });
     // Clean up on unmount
     return () => map.remove();
-  }, []);
+  }, );
 
   return (
     <Container>
