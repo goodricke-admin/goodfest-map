@@ -7,39 +7,35 @@ const Template = {
 export const StageSchedule = {
   Schedule: [
     {
-      Act: "Camille & Robin",
-      Socials: ["https://www.instagram.com/orwin_camille.music/"],
+      Act: "The Tonics",
+      Socials: [""],
       Time: "15:45PM-16:30PM",
     },
     {
-      Act: "Finnbar & Scott",
+      Act: "The Blazers",
       Socials: [""],
       Time: "16:30PM-17:15PM",
     },
     {
-      Act: "PH7",
-      Socials: ["https://www.instagram.com/ph7band/"],
+      Act: "Cavalier",
+      Socials: ["https://www.instagram.com/cavalier.band/"],
       Time: "17:15PM-18:00PM",
     },
     {
-      Act: "Gents and Ginger",
-      Socials: ["https://www.instagram.com/gentsandginger/"],
+      Act: "Catch",
+      Socials: [""],
       Time: "18:00PM-19:00PM",
     },
     {
-      Act: "The Strand",
-      Socials: ["https://www.instagram.com/thestrand.band/"],
+      Act: "Substate,
+      Socials: [""],
       Time: "19:00PM-20:00PM",
     },
     {
-      Act: "Floral Pattern",
-      Socials: ["https://www.instagram.com/flor.alpattern/"],
+      Act: "The Expression",
+      Socials: [""],
       Time: "20:00PM-21:00PM",
     },
-    {
-      Act: "Everything After Midnight",
-      Socials: ["https://www.instagram.com/everythingaftermidnight/"],
-      Time: "21:00PM-22:00PM",
-    },
+
   ],
 };
