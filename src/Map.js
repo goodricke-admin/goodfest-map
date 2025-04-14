@@ -91,7 +91,7 @@ const Map = () => {
       <IoPizzaOutline size={50} />
     );
 
-    createMarker(
+    /*createMarker(
       map,
       53.94880861200045,
       -1.0311021278578778,
@@ -119,12 +119,12 @@ const Map = () => {
         }}
       />,
       <IoBeerOutline size={50} />
-    );
+    );*/
 
     createMarker(
       map,
-      53.94859357253344,
-      -1.0312588227954222,
+      53.947382,
+      -1.0.1851,
       <Merch
         closeModal={() => setShowModal(false)}
         onClickFunc={(modalContent) => {
@@ -136,7 +136,7 @@ const Map = () => {
       <IoShirtOutline size={50} />
     );
 
-    createMarker(
+    /*createMarker(
       map,
       53.94862413065013,
       -1.0311939171821223,
@@ -168,7 +168,7 @@ const Map = () => {
         height="50px"
         width="50px"
       />
-    );
+    );*/
 
     map.on("move", () => {
       setLng(map.getCenter().lng.toFixed(4));
@@ -213,8 +213,8 @@ const Map = () => {
     <Container>
       <MapContainer ref={mapContainerRef}>
         <Title>
-          <a href="https://www.goodricke.co.uk/">
-            <Logo src="https://www.goodricke.co.uk/wp-content/uploads/2022/05/GoodfestLogo2022.png" />
+          <a href="https://www.goodrickecollege.com/">
+            <Logo src="https://static.wixstatic.com/media/4e3b1b_f72274f997344618808e5440c99a14be~mv2.webp/v1/fill/w_215,h_63,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/logo-with-name.webp" />
           </a>
         </Title>
       </MapContainer>
