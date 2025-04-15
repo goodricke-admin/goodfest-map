@@ -53,15 +53,15 @@ const Map = () => {
   // Initialize map when component mounts
   useEffect(() => {
     const box = [
-      [-1.03497, 53.94624],
-      [-1.02813, 53.95003],
+      [-1.03497, 53.94624], //SW corner
+      [-1.02813, 53.95003], //NE corner
     ];
     const map = new mapboxgl.Map({
       container: mapContainerRef.current,
       style: "mapbox://styles/mapbox/streets-v11",
-      center: [-1.031909,53.94719],
+      center: [lng,lat],
       zoom: zoom,
-      maxBounds: box,
+      maxBounds: box, // User cannot navigate past these bounds
     });
 
     createMarker(
@@ -172,16 +172,18 @@ const Map = () => {
       />
     );*/
 
+    //Whenever you pan or zoom the map, the script will update the longitude, latitude, and zoom level, ensuring real-time tracking of the map’s position.
     map.on("move", () => {
-      setLng(map.getCenter().lng.toFixed(4));
+      setLng(map.getCenter().lng.toFixed(4)); 
       setLat(map.getCenter().lat.toFixed(4));
       setZoom(map.getZoom().toFixed(2));
     });
 
     const bbox = [
-      [-1.033170, 53.974652],
-      [-1.030659, 53.946746],
+      [-1.033301, 53.946785], //southwest corner
+      [-1.031200, 53.947490], //northeast corner
     ];
+    //adjusts the map's viewport ot ensure that the bounding box is always fully visible
     map.fitBounds(bbox, {
       padding: { top: 10, bottom: 25, left: 15, right: 5 },
     });
