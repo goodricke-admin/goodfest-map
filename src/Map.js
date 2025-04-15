@@ -44,8 +44,8 @@ const Logo = styled.img`
 const Map = () => {
   const mapContainerRef = useRef(null);
   
-  const [lng, setLng] = useState(5);
-  const [lat, setLat] = useState(34);
+  const [lng, setLng] = useState(53);
+  const [lat, setLat] = useState(-1);
   const [zoom, setZoom] = useState(1.5);
 
   const [showModal, setShowModal] = useState(false);
@@ -180,7 +180,7 @@ const Map = () => {
     });
 
     const bbox = [
-      [-1.033301, 53.946785], //southwest corner
+      [-1.033000, 53.946785], //southwest corner
       [-1.031200, 53.947490], //northeast corner
     ];
     //adjusts the map's viewport ot ensure that the bounding box is always fully visible
