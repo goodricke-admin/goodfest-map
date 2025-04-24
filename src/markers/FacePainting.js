@@ -15,6 +15,10 @@ const ModalCloseButton = styled.button`
   right: 20px;
 `;
 
+const Attribute = styled.a`
+  font-size: 0.4rem;
+`;
+
 function FacePainting({ onClickFunc, closeModal }) {
   const modalContent = (
     <>
