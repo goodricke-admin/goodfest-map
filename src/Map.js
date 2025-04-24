@@ -4,12 +4,14 @@ import ReactModal from "react-modal";
 import Stage from "./markers/Stage";
 import Merch from "./markers/Merch";
 import { createRoot } from "react-dom/client";
-import GlassHouse from "./markers/GlassHouse";
-import { IoPizzaOutline, IoBeerOutline, IoShirtOutline } from "react-icons/io5";
+import { IoBeerOutline, IoShirtOutline } from "react-icons/io5";
 import { GiFrenchFries } from "react-icons/gi";
-import { LiaHotdogSolid } from "react-icons/lia";
+import { GiHotDog } from "react-icons/gi";
+//import { LiaHotdogSolid } from "react-icons/lia";
+
 import { BsSpeaker } from "react-icons/bs";
 import styled from "styled-components";
+import GlassHouse from "./markers/GlassHouse";
 import FacePainting from "./markers/FacePainting";
 import VintageClothing from "./markers/VintageClothing";
 import FriendshipBracelets from "./markers/FriendshipBracelets";
@@ -127,7 +129,7 @@ const Map = () => {
           setModalContent(modalContent);
         }}
       />,
-      <LiaHotdogSolid size={50} />
+      <GiHotDog size={50} />
     );
 
     createMarker(
@@ -203,7 +205,7 @@ const Map = () => {
         }}
       />,
       <img
-        src="https://www.flaticon.com/free-icons/face-painting"
+        src={require("./images/face-painting.png")}
         alt ="Face Painting Logo"
         height="50px"
         width="50px"
@@ -260,7 +262,7 @@ const Map = () => {
       <MapContainer ref={mapContainerRef}>
         <Title>
           <a href="https://www.goodrickecollege.com/">
-            <Logo src="https://static.wixstatic.com/media/4e3b1b_f72274f997344618808e5440c99a14be~mv2.webp/v1/fill/w_215,h_63,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/logo-with-name.webp" />
+            <Logo src={require("./images/Goodricke_college.png")} height="50px" width="50px" />
           </a>
         </Title>
       </MapContainer>

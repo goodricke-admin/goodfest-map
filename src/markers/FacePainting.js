@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { AiOutlineClose } from "react-icons/ai";
 
 const ModalCloseButton = styled.button`
   align-self: start;
@@ -33,9 +34,16 @@ function FacePainting({ onClickFunc, closeModal }) {
       <p>
         Come and get your Festival Face paint - Glitter and Glow-up time! 
       </p>
-      <br></br>
-      <a href="https://www.flaticon.com/free-icons/face-painting" title="face painting icons">Face painting icons created by cah nggunung - Flaticon</a>
-      {/*<button
+      <br />
+      <Attribute
+        href="https://www.flaticon.com/free-icons/face-painting"
+        title="face painting icons"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Face painting icons created by cah nggunung - Flaticon
+      </Attribute>
+     {/*<button
         onClick={() => {
           onClickFunc(modalContent);
         }}
