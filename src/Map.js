@@ -49,7 +49,7 @@ const Logo = styled.img`
 const Map = () => {
   const mapContainerRef = useRef(null);
 
-  
+ 
   const [lng, setLng] = useState(53);
   const [lat, setLat] = useState(-1);
   const [zoom, setZoom] = useState(1.5);
@@ -213,6 +213,7 @@ const Map = () => {
     //Whenever you pan or zoom the map, the script will update the longitude, latitude, and zoom level, ensuring real-time tracking of the map’s position.
     map.on("move", () => {
       setLng(map.getCenter().lng.toFixed(4)); 
+    });
 
     /*map.on("move", () => {
       setLng(map.getCenter().lng.toFixed(4));
@@ -248,7 +249,7 @@ const Map = () => {
         paint: {
           "raster-fade-duration": 0,
         },
-      });*/
+      });
     });
     // Clean up on unmount
     return () => map.remove();
