@@ -15,7 +15,7 @@ const ModalCloseButton = styled.button`
   right: 20px;
 `;
 
-function Food({ onClickFunc, closeModal }) {
+function Yuzu({ onClickFunc, closeModal }) {
   const modalContent = (
     <>
       <ModalCloseButton
@@ -25,18 +25,14 @@ function Food({ onClickFunc, closeModal }) {
       >
         <AiOutlineClose size={32} />
       </ModalCloseButton>
-      <h1>Dominos Pizza</h1>
+
     </>
   );
   return (
     <div className="popup">
-      <h1>Dominos Pizza</h1>
+      <h1>Yuzu Street Food</h1>
       <p>
-        Dominos are bringing a food truck so be sure to get something to eat.
-        <br />
-        <b>Individual Pizza: £4</b>
-        <br />
-        Margarita or Peperoni
+        Loaded fries, katsu, and gyozas from the delicious GlassHouse Yuzu Menu.
       </p>
       {/*<button
         onClick={() => {
@@ -49,4 +45,4 @@ function Food({ onClickFunc, closeModal }) {
   );
 }
 
-export default Food;
+export default Yuzu;

@@ -15,7 +15,11 @@ const ModalCloseButton = styled.button`
   right: 20px;
 `;
 
-function Hornets({ onClickFunc, closeModal }) {
+const Attribute = styled.a`
+  font-size: 0.4rem;
+`;
+
+function VintageClothing({ onClickFunc, closeModal }) {
   const modalContent = (
     <>
       <ModalCloseButton
@@ -25,15 +29,13 @@ function Hornets({ onClickFunc, closeModal }) {
       >
         <AiOutlineClose size={32} />
       </ModalCloseButton>
-      <h1>Dominos Pizza</h1>
     </>
   );
   return (
     <div className="popup">
-      <h1>York Hornets</h1>
+      <h1>Notion's Vintage</h1>
       <p>
-        Come and watch The University of York's very own Cheerleading team The
-        York Hornets! Between 15:00 and 15:45 The Hornets will be performing.
+        Shop unique vintage fits
       </p>
       {/*<button
         onClick={() => {
@@ -42,8 +44,24 @@ function Hornets({ onClickFunc, closeModal }) {
       >
         Trigger Modal
       </button>*/}
+      <a
+        href="https://www.instagram.com/notionsvintageyork/"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Find out more about Notions Vintage here
+      </a>
+      <br />
+      <Attribute
+        href="https://www.flaticon.com/free-icons/jacket"
+        title="jacket icons"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Jacket icons created by Freepik - Flaticon
+      </Attribute>
     </div>
   );
 }
 
-export default Hornets;
+export default VintageClothing;

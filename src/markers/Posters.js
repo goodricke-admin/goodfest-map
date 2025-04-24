@@ -19,7 +19,7 @@ const Attribute = styled.a`
   font-size: 0.4rem;
 `;
 
-function Henna({ onClickFunc, closeModal }) {
+function Posters({ onClickFunc, closeModal }) {
   const modalContent = (
     <>
       <ModalCloseButton
@@ -29,16 +29,13 @@ function Henna({ onClickFunc, closeModal }) {
       >
         <AiOutlineClose size={32} />
       </ModalCloseButton>
-      <h1>Dominos Pizza</h1>
     </>
   );
   return (
     <div className="popup">
-      <h1>Henna</h1>
+      <h1>Poster Stall</h1>
       <p>
-        Join the Henna Society in the Clarbour room to get some beautiful and
-        intricate designs on hands, ankles.... any part of the body that you
-        fancy your art on!
+        
       </p>
       {/*<button
         onClick={() => {
@@ -47,24 +44,17 @@ function Henna({ onClickFunc, closeModal }) {
       >
         Trigger Modal
       </button>*/}
-      <a
-        href="https://www.instagram.com/uoyhennasociety/"
-        target="_blank"
-        rel="noreferrer"
-      >
-        Find out more about the Henna Society here
-      </a>
-      <br />
+        <br />
       <Attribute
-        href="https://www.flaticon.com/free-icons/henna"
-        title="henna icons"
+        href="https://www.flaticon.com/free-icons/jacket"
+        title="jacket icons"
         target="_blank"
         rel="noreferrer"
       >
-        Henna icons created by Eucalyp - Flaticon
+        Jacket icons created by Freepik - Flaticon
       </Attribute>
     </div>
   );
 }
 
-export default Henna;
+export default Posters;

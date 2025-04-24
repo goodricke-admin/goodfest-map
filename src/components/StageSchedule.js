@@ -9,33 +9,32 @@ export const StageSchedule = {
     {
       Act: "The Tonics",
       Socials: [""],
-      Time: "15:45PM-16:30PM",
-    },
-    {
-      Act: "The Blazers",
-      Socials: [""],
-      Time: "16:30PM-17:15PM",
+      Time: "17:30-17:55",
     },
     {
       Act: "Cavalier",
       Socials: ["https://www.instagram.com/cavalier.band/"],
-      Time: "17:15PM-18:00PM",
-    },
-    {
-      Act: "Catch",
-      Socials: [""],
-      Time: "18:00PM-19:00PM",
+      Time: "18:05-18:60",
     },
     {
       Act: "Substate",
       Socials: [""],
-      Time: "19:00PM-20:00PM",
+      Time: "18:40-19:05",
+    },
+    {
+      Act: "Catch",
+      Socials: [""],
+      Time: "19:15-19:40",
     },
     {
       Act: "The Expression",
       Socials: [""],
-      Time: "20:00PM-21:00PM",
+      Time: "19:50-20:15",
     },
-
+    {
+      Act: "The Blazers",
+      Socials: [""],
+      Time: "20:25-20:50",
+    },
   ],
 };

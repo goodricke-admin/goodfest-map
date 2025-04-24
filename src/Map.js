@@ -2,15 +2,22 @@ import React, { useRef, useEffect, useState } from "react";
 import mapboxgl from "mapbox-gl";
 import ReactModal from "react-modal";
 import Stage from "./markers/Stage";
-import Henna from "./markers/Henna";
 import Merch from "./markers/Merch";
-import Hornets from "./markers/Hornets";
 import { createRoot } from "react-dom/client";
-import Food from "./markers/Food";
-import GlassHouse from "./markers/GlassHouse";
-import { IoPizzaOutline, IoBeerOutline, IoShirtOutline } from "react-icons/io5";
+import { IoBeerOutline, IoShirtOutline } from "react-icons/io5";
+import { GiFrenchFries } from "react-icons/gi";
+import { GiHotDog } from "react-icons/gi";
+//import { LiaHotdogSolid } from "react-icons/lia";
+
 import { BsSpeaker } from "react-icons/bs";
 import styled from "styled-components";
+import GlassHouse from "./markers/GlassHouse";
+import FacePainting from "./markers/FacePainting";
+import VintageClothing from "./markers/VintageClothing";
+import FriendshipBracelets from "./markers/FriendshipBracelets";
+import Magazine from "./markers/Magazine";
+import Yuzu from "./markers/Yuzu";
+import Coffee from "./markers/Coffee";
 const { REACT_APP_MAPACCESSTOKEN } = process.env;
 
 mapboxgl.accessToken = REACT_APP_MAPACCESSTOKEN;
@@ -44,7 +51,7 @@ const Logo = styled.img`
 const Map = () => {
   const mapContainerRef = useRef(null);
 
-  
+ 
   const [lng, setLng] = useState(53);
   const [lat, setLat] = useState(-1);
   const [zoom, setZoom] = useState(1.5);
@@ -84,7 +91,7 @@ const Map = () => {
       map,
       53.946964,
       -1.032602,
-      <Food
+      <Yuzu
         closeModal={() => setShowModal(false)}
         onClickFunc={(modalContent) => {
           console.log("Open Modal");
@@ -92,13 +99,13 @@ const Map = () => {
           setModalContent(modalContent);
         }}
       />,
-      <IoPizzaOutline size={50} />
+      <GiFrenchFries size={50} />
     );
 
-    /*createMarker(
+    createMarker(
       map,
-      53.94880861200045,
-      -1.0311021278578778,
+      53.947024,
+      -1.032540,
       <GlassHouse
         closeModal={() => setShowModal(false)}
         onClickFunc={(modalContent) => {
@@ -112,9 +119,9 @@ const Map = () => {
 
     createMarker(
       map,
-      53.94866341962435,
-      -1.0312476961189816,
-      <GlassHouse
+      53.946910,
+      -1.032641,
+      <Coffee
         closeModal={() => setShowModal(false)}
         onClickFunc={(modalContent) => {
           console.log("Open Modal");
@@ -122,8 +129,8 @@ const Map = () => {
           setModalContent(modalContent);
         }}
       />,
-      <IoBeerOutline size={50} />
-    );*/
+      <GiHotDog size={50} />
+    );
 
     createMarker(
       map,
@@ -140,11 +147,11 @@ const Map = () => {
       <IoShirtOutline size={50} />
     );
 
-    /*createMarker(
+    createMarker(
       map,
-      53.94862413065013,
-      -1.0311939171821223,
-      <Henna
+      53.9474,
+      -1.0317,
+      <VintageClothing
         closeModal={() => setShowModal(false)}
         onClickFunc={(modalContent) => {
           console.log("Open Modal");
@@ -152,14 +159,44 @@ const Map = () => {
           setModalContent(modalContent);
         }}
       />,
-      <img src={require("./images/henna.png")} alt="Henna Logo" height="50px" width="50px" />
+      <img src={require("./images/vintage-clothing.png")} alt="Vintage Clothing Logo" height="50px" width="50px" />
     );
 
     createMarker(
       map,
-      53.948708165355384,
-      -1.0314999007907488,
-      <Hornets
+      53.9474423,
+      -1.032192,
+      <FriendshipBracelets
+        closeModal={() => setShowModal(false)}
+        onClickFunc={(modalContent) => {
+          console.log("Open Modal");
+          setShowModal(true);
+          setModalContent(modalContent);
+        }}
+      />,
+      <img src={require("./images/friendship-bracelets.png")} alt="Bracelets Logo" height="50px" width="50px" />
+    );
+
+    createMarker(
+      map,
+      53.947313,
+      -1.031560,
+      <Magazine
+        closeModal={() => setShowModal(false)}
+        onClickFunc={(modalContent) => {
+          console.log("Open Modal");
+          setShowModal(true);
+          setModalContent(modalContent);
+        }}
+      />,
+      <img src={require("./images/circulation-mag.png")} alt="Circulation Magazine Logo" height="50px" width="50px" />
+    );
+    
+    createMarker(
+      map,
+      53.947399,
+      -1.031967,
+      <FacePainting
         closeModal={() => setShowModal(false)}
         onClickFunc={(modalContent) => {
           console.log("Open Modal");
@@ -168,16 +205,17 @@ const Map = () => {
         }}
       />,
       <img
-        src={require("./images/york-hornets.png")}
-        alt ="York Hornets Logo"
+        src={require("./images/face-painting.png")}
+        alt ="Face Painting Logo"
         height="50px"
         width="50px"
       />
-    );*/
+    );
 
     //Whenever you pan or zoom the map, the script will update the longitude, latitude, and zoom level, ensuring real-time tracking of the map’s position.
     map.on("move", () => {
       setLng(map.getCenter().lng.toFixed(4)); 
+    });
 
     /*map.on("move", () => {
       setLng(map.getCenter().lng.toFixed(4));
@@ -186,9 +224,8 @@ const Map = () => {
     });*/
 
     const bbox = [
-      [-1.033000, 53.946785], //southwest corner
-      [-1.031200, 53.947490], //northeast corner
-
+      [-1.04, 53.94], //southwest corner
+      [-1.03, 53.95], //northeast corner
     ];
     //adjusts the map's viewport ot ensure that the bounding box is always fully visible
     map.fitBounds(bbox, {
@@ -197,7 +234,7 @@ const Map = () => {
 
     map.on("load", function () {
       console.log("Map loaded");
-      /*map.addSource("radar", {
+      map.addSource("radar", {
         type: "image",
         url: "https://www.goodricke.co.uk/wp-content/uploads/2022/04/Nucleus-Map-2.png",
         coordinates: [
@@ -214,7 +251,7 @@ const Map = () => {
         paint: {
           "raster-fade-duration": 0,
         },
-      });*/
+      });
     });
     // Clean up on unmount
     return () => map.remove();
@@ -225,7 +262,7 @@ const Map = () => {
       <MapContainer ref={mapContainerRef}>
         <Title>
           <a href="https://www.goodrickecollege.com/">
-            <Logo src="https://static.wixstatic.com/media/4e3b1b_f72274f997344618808e5440c99a14be~mv2.webp/v1/fill/w_215,h_63,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/logo-with-name.webp" />
+            <Logo src={require("./images/Goodricke_college.png")} height="50px" width="50px" />
           </a>
         </Title>
       </MapContainer>
