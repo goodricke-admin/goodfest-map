@@ -1,0 +1,49 @@
+import React from "react";
+import styled from "styled-components";
+
+const ModalCloseButton = styled.button`
+  align-self: start;
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  position: absolute;
+  right: 20px;
+`;
+
+function FacePainting({ onClickFunc, closeModal }) {
+  const modalContent = (
+    <>
+      <ModalCloseButton
+        onClick={() => {
+          closeModal();
+        }}
+      >
+        <AiOutlineClose size={32} />
+      </ModalCloseButton>
+    </>
+  );
+  return (
+    <div className="popup">
+      <h1>Face Painting
+      </h1>
+      <p>
+        Come and get your Festival Face paint - Glitter and Glow-up time! 
+      </p>
+      <br></br>
+      <a href="https://www.flaticon.com/free-icons/face-painting" title="face painting icons">Face painting icons created by cah nggunung - Flaticon</a>
+      {/*<button
+        onClick={() => {
+          onClickFunc(modalContent);
+        }}
+      >
+        Trigger Modal
+      </button>*/}
+    </div>
+  );
+}
+
+export default FacePainting;

@@ -34,7 +34,7 @@ const ModalTitle = styled.h1`
   width: 100%;
 `;
 
-function Food({ onClickFunc, closeModal }) {
+function GlassHouse({ onClickFunc, closeModal }) {
   const modalContent = (
     <>
       <ModalContainer>
@@ -55,8 +55,7 @@ function Food({ onClickFunc, closeModal }) {
     <div className="popup">
       <h1>GlassHouse Bar</h1>
       <p>
-        GlassHouse are providing drinks for the event and have 2 bars. They are
-        bringing a variety of beers and cocktails find out more bellow.
+        GlassHouse are providing drinks for the event to keep you refreshed all evening.
         <br />
         <b>
           Due to licensing restrictions you are unable to bring your own
@@ -74,4 +73,4 @@ function Food({ onClickFunc, closeModal }) {
   );
 }
 
-export default Food;
+export default GlassHouse;
