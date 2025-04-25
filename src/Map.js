@@ -233,7 +233,7 @@ const Map = () => {
     });
     */
 
-    /*
+    
     const bbox = [
       [-1.04, 53.94], //southwest corner
       [-1.03, 53.95], //northeast corner
@@ -242,7 +242,7 @@ const Map = () => {
     map.fitBounds(bbox, {
       padding: { top: 10, bottom: 25, left: 15, right: 5 },
     });
-    */
+    
 
     map.on("load", function () {
       console.log("Map loaded");
