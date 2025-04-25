@@ -52,7 +52,7 @@ const Map = () => {
 
   const [lng, setLng] = useState(53);
   const [lat, setLat] = useState(-1);
-  const [zoom, setZoom] = useState(1.5);
+  const [zoom, setZoom] = useState(6);
 
   const [showModal, setShowModal] = useState(false);
   const [modalContent, setModalContent] = useState();
@@ -115,6 +115,7 @@ const Map = () => {
       <IoBeerOutline size={50} />
     );
 
+/*
     createMarker(
       map,
       53.946809,
@@ -129,6 +130,7 @@ const Map = () => {
       />,
       <GiHotDog size={50} />
     );
+*/
 
     createMarker(
       map,
