@@ -68,7 +68,7 @@ const Map = () => {
       style: "mapbox://styles/mapbox/streets-v11",
       center: [lng,lat],
       zoom: zoom,
-      //maxBounds: box, // User cannot navigate past these bounds
+      maxBounds: box, // User cannot navigate past these bounds
 
     });
 
@@ -224,14 +224,14 @@ const Map = () => {
         width="40px"
       />
     );
-    
+    /*
     //Whenever you pan or zoom the map, the script will update the longitude, latitude, and zoom level, ensuring real-time tracking of the map’s position.
     map.on("move", () => { 
       setLng(map.getCenter().lng.toFixed(4));
       setLat(map.getCenter().lat.toFixed(4));
       setZoom(map.getZoom().toFixed(2));
     });
-    
+    */
 
     /*
     const bbox = [
