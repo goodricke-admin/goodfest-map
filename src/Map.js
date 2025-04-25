@@ -133,7 +133,7 @@ const Map = () => {
     createMarker(
       map,
       53.947288,
-      -1.031752,
+      -1.031600,
       <Merch
         closeModal={() => setShowModal(false)}
         onClickFunc={(modalContent) => {
@@ -148,7 +148,7 @@ const Map = () => {
     createMarker(
       map,
       53.947288,
-      -1.031559,
+      -1.031480,
       <VintageClothing
         closeModal={() => setShowModal(false)}
         onClickFunc={(modalContent) => {
@@ -168,7 +168,7 @@ const Map = () => {
     createMarker(
       map,
       53.947288,
-      -1.031967,
+      -1.031840,
       <FriendshipBracelets
         closeModal={() => setShowModal(false)}
         onClickFunc={(modalContent) => {
@@ -188,7 +188,7 @@ const Map = () => {
     createMarker(
       map,
       53.947288,
-      -1.031380,
+      -1.031360,
       <Magazine
         closeModal={() => setShowModal(false)}
         onClickFunc={(modalContent) => {
@@ -208,7 +208,7 @@ const Map = () => {
     createMarker(
       map,
       53.947288,
-      -1.031909,
+      -1.031720,
       <FacePainting
         closeModal={() => setShowModal(false)}
         onClickFunc={(modalContent) => {
@@ -224,14 +224,14 @@ const Map = () => {
         width="40px"
       />
     );
-    /*
+    
     //Whenever you pan or zoom the map, the script will update the longitude, latitude, and zoom level, ensuring real-time tracking of the map’s position.
     map.on("move", () => { 
       setLng(map.getCenter().lng.toFixed(4));
       setLat(map.getCenter().lat.toFixed(4));
       setZoom(map.getZoom().toFixed(2));
     });
-    */
+    
 
     /*
     const bbox = [

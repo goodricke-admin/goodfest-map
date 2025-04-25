@@ -112,10 +112,8 @@ function Merch({ onClickFunc, closeModal }) {
               <TableHeader>Price</TableHeader>
             </TableRow>
 
-            <MerchRow itemName="T-Shirt" price="£10" />
-            <MerchRow itemName="Bucket Hat" price="£12" />
-            <MerchRow itemName="Shot Glass" price="£5" />
-            <MerchRow itemName="Oddballs Merch" price="Varying" />
+            <MerchRow itemName="College Fleeces" price="Varying" />
+            <MerchRow itemName="College Hoodies" price="Varying" />
           </tbody>
         </TableContainer>
       </ModalMainContent>
@@ -123,10 +121,13 @@ function Merch({ onClickFunc, closeModal }) {
   );
   return (
     <div className="popup">
-      <h1>Goodricke Merch</h1>
+      <h1>College Merch</h1>
       <p>
         The Goodricke Merch stand is back with all of your favorite designs. See
         below for the full inventory and price list. <b>Card payments only.</b>
+      </p>
+      <p>
+        Merch will also be available to rep Langwith and Alcuin colleges!
       </p>
       {
         <button
