@@ -7,8 +7,6 @@ import { createRoot } from "react-dom/client";
 import { IoBeerOutline, IoShirtOutline } from "react-icons/io5";
 import { GiFrenchFries } from "react-icons/gi";
 import { GiHotDog } from "react-icons/gi";
-//import { LiaHotdogSolid } from "react-icons/lia";
-
 import { BsSpeaker } from "react-icons/bs";
 import styled from "styled-components";
 import GlassHouse from "./markers/GlassHouse";
@@ -21,7 +19,8 @@ import Coffee from "./markers/Coffee";
 const { REACT_APP_MAPACCESSTOKEN } = process.env;
 
 mapboxgl.accessToken = REACT_APP_MAPACCESSTOKEN;
-console.log(REACT_APP_MAPACCESSTOKEN)
+//console.log(REACT_APP_MAPACCESSTOKEN)
+
 const MapContainer = styled.div`
   height: 100vh;
   width: 100vw;
@@ -51,7 +50,6 @@ const Logo = styled.img`
 const Map = () => {
   const mapContainerRef = useRef(null);
 
- 
   const [lng, setLng] = useState(53);
   const [lat, setLat] = useState(-1);
   const [zoom, setZoom] = useState(1.5);
@@ -70,7 +68,7 @@ const Map = () => {
       style: "mapbox://styles/mapbox/streets-v11",
       center: [lng,lat],
       zoom: zoom,
-      maxBounds: box, // User cannot navigate past these bounds
+      //maxBounds: box, // User cannot navigate past these bounds
 
     });
 
@@ -89,8 +87,8 @@ const Map = () => {
     );
     createMarker(
       map,
-      53.946964,
-      -1.032602,
+      53.947056,
+      -1.032523,
       <Yuzu
         closeModal={() => setShowModal(false)}
         onClickFunc={(modalContent) => {
@@ -104,8 +102,8 @@ const Map = () => {
 
     createMarker(
       map,
-      53.947024,
-      -1.032540,
+      53.946917,
+      -1.032611,
       <GlassHouse
         closeModal={() => setShowModal(false)}
         onClickFunc={(modalContent) => {
@@ -119,8 +117,8 @@ const Map = () => {
 
     createMarker(
       map,
-      53.946910,
-      -1.032641,
+      53.946809,
+      -1.032679,
       <Coffee
         closeModal={() => setShowModal(false)}
         onClickFunc={(modalContent) => {
@@ -134,8 +132,8 @@ const Map = () => {
 
     createMarker(
       map,
-      53.947382,
-      -1.031851,
+      53.947288,
+      -1.031752,
       <Merch
         closeModal={() => setShowModal(false)}
         onClickFunc={(modalContent) => {
@@ -144,13 +142,13 @@ const Map = () => {
           setModalContent(modalContent);
         }}
       />,
-      <IoShirtOutline size={50} />
+      <IoShirtOutline size={40} />
     );
 
     createMarker(
       map,
-      53.9474,
-      -1.0317,
+      53.947288,
+      -1.031559,
       <VintageClothing
         closeModal={() => setShowModal(false)}
         onClickFunc={(modalContent) => {
@@ -159,13 +157,18 @@ const Map = () => {
           setModalContent(modalContent);
         }}
       />,
-      <img src={require("./images/vintage-clothing.png")} alt="Vintage Clothing Logo" height="50px" width="50px" />
+      <img 
+        src={require("./images/vintage-clothing.png")} 
+        alt="Vintage Clothing Logo" 
+        height="40px" 
+        width="40px" 
+      />
     );
 
     createMarker(
       map,
-      53.9474423,
-      -1.032192,
+      53.947288,
+      -1.031967,
       <FriendshipBracelets
         closeModal={() => setShowModal(false)}
         onClickFunc={(modalContent) => {
@@ -174,13 +177,18 @@ const Map = () => {
           setModalContent(modalContent);
         }}
       />,
-      <img src={require("./images/friendship-bracelets.png")} alt="Bracelets Logo" height="50px" width="50px" />
+      <img 
+        src={require("./images/friendship-bracelets.png")} 
+        alt="Bracelets Logo" 
+        height="40px" 
+        width="40px" 
+      />
     );
 
     createMarker(
       map,
-      53.947313,
-      -1.031560,
+      53.947288,
+      -1.031380,
       <Magazine
         closeModal={() => setShowModal(false)}
         onClickFunc={(modalContent) => {
@@ -189,13 +197,18 @@ const Map = () => {
           setModalContent(modalContent);
         }}
       />,
-      <img src={require("./images/circulation-mag.png")} alt="Circulation Magazine Logo" height="50px" width="50px" />
+      <img 
+        src={require("./images/circulation-mag.png")} 
+        alt="Circulation Magazine Logo" 
+        height="40px" 
+        width="40px"
+      />
     );
     
     createMarker(
       map,
-      53.947399,
-      -1.031967,
+      53.947288,
+      -1.031909,
       <FacePainting
         closeModal={() => setShowModal(false)}
         onClickFunc={(modalContent) => {
@@ -207,22 +220,20 @@ const Map = () => {
       <img
         src={require("./images/face-painting.png")}
         alt ="Face Painting Logo"
-        height="50px"
-        width="50px"
+        height="40px"
+        width="40px"
       />
     );
-
+    /*
     //Whenever you pan or zoom the map, the script will update the longitude, latitude, and zoom level, ensuring real-time tracking of the map’s position.
-    map.on("move", () => {
-      setLng(map.getCenter().lng.toFixed(4)); 
-    });
-
-    /*map.on("move", () => {
+    map.on("move", () => { 
       setLng(map.getCenter().lng.toFixed(4));
       setLat(map.getCenter().lat.toFixed(4));
       setZoom(map.getZoom().toFixed(2));
-    });*/
+    });
+    */
 
+    /*
     const bbox = [
       [-1.04, 53.94], //southwest corner
       [-1.03, 53.95], //northeast corner
@@ -231,9 +242,11 @@ const Map = () => {
     map.fitBounds(bbox, {
       padding: { top: 10, bottom: 25, left: 15, right: 5 },
     });
+    */
 
     map.on("load", function () {
       console.log("Map loaded");
+      /*
       map.addSource("radar", {
         type: "image",
         url: "https://www.goodricke.co.uk/wp-content/uploads/2022/04/Nucleus-Map-2.png",
@@ -252,6 +265,7 @@ const Map = () => {
           "raster-fade-duration": 0,
         },
       });
+      */
     });
     // Clean up on unmount
     return () => map.remove();
