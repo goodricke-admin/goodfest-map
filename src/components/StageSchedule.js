@@ -14,7 +14,7 @@ export const StageSchedule = {
     {
       Act: "Cavalier",
       Socials: ["https://www.instagram.com/cavalier.band/","https://www.youtube.com/@Band.Cavalier"],
-      Time: "18:05-18:60",
+      Time: "18:05-18:30",
     },
     {
       Act: "Substate",
